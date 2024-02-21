@@ -37,5 +37,5 @@ const styles = StyleSheet.create({
     }
 });
 
-// https://www.youtube.com/watch?v=-Hfdjd0GyZc&list=PLUlw6638d2QZFbQfC3sB5mKWJUWr2HEkc
+// 
 

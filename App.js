@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import React, { useState } from 'react';
 import Button from './components/button/Button';
+import ActionButton from './components/actionButtons/ResetButton';
 
 export default function App() {
 
@@ -14,9 +15,17 @@ export default function App() {
     setCounter(c => (c > 0 ? c - 1 : 0));
   }
 
+  function handleReset() {
+    setCounter(0);
+  }
+
+  function handlePlus10() {
+    setCounter(c => c + 10);
+  }
+
   return (
     <View style={styles.container}>
-      
+
       <View style={styles.subcontainer}>
 
         <Button label='-' action={handleDown} />
@@ -26,7 +35,10 @@ export default function App() {
         </View>
 
         <Button label='+' action={handleUp} />
+      </View>
 
+      <View style={styles.subcontainerReset}>
+        <ActionButton reset={handleReset} plus={handlePlus10} />
       </View>
 
     </View>
@@ -46,6 +58,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     flexDirection: 'row'
   },
+  subcontainerReset: {
+    height: 50,
+    width: '100%',
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30
+  },
   btn: {
     width: 50,
     height: 50,
@@ -63,7 +84,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-
   counter: {
     fontSize: 40,
     color: 'white',
